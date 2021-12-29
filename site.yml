@@ -1,0 +1,17 @@
+---
+- name: Example playbook
+  hosts: all
+  connection: local
+  become: yes
+
+  tasks:
+    - name: Install nano
+      ansible.builtin.package:
+        name: nano
+        state: present
+
+    - name: Configure nano
+      ansible.builtin.lineinfile:
+        dest: /etc/nanorc
+        regexp: '^set tabsize'
+        line: 'set tabsize 4'

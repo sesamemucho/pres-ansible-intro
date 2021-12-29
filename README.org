@@ -1,0 +1,50 @@
+* Ansible
+
+** what it is
+For configuring machines or VMs.
+
+All it needs on the target is python and SSH access.
+
+Is idempotent. When you re-run ansible, it will only change
+things that are different from what they are supposed to be.
+
+** what it isn't
+It only knows about what it knows about. If you've changed
+something on the target that ansible didn't set, ansible
+won't be able to undo those changes.
+
+** How it works
+
+*** Inventory file
+This identifies all the hosts you will work with.
+
+*** Playbook file
+This tells ansible what to do.
+
+*** Example
+
+#+begin_src sh :results output verbatim :dir ~/Projects/from_repos/pres-ansible-intro
+ansible-playbook -i inventory.yml site.yml
+#+end_src
+
+#+begin_src sh :results output verbatim :dir ~/Projects/from_repos/pres-ansible-intro
+yes | sudo pacman -R --nosave nano
+#+end_src
+
+*** roles
+For anything more than a fairly simple playbook, you will
+want to use roles. Think of them as 'ansible functions'.
+
+** Documentation and community support
+
+Ansible is a large and full-featured project.
+
+[[https://docs.ansible.com/]]
+Complete and pretty good. Can be a little difficult to
+navigate.
+
+[[https://galaxy.ansible.com/]]
+Large collection of community-supplied roles.
+
+[[https://github.com/KeyboardInterrupt/awesome-ansible#readme]]
+Curated up-to-date list of ansible resources.
